@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: say-hello
-        run: echo "ciao a tutti"
+        run: npm run test

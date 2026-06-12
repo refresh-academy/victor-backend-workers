@@ -5,8 +5,18 @@ on:
   pull_request:
 
 jobs:
-  ci-test:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: say-hello
-        run: npm run test
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
